@@ -60,6 +60,29 @@ void insertAtPos(Node* &head, int val, int pos){
     return ;
 }
 
+void deleteAtEnd(Node* &head){
+    if(head==nullptr)   return;
+    if(head->next==nullptr){
+        Node* temp = head;
+        delete temp;
+        head = nullptr;
+        return;
+    }
+    Node* temp = head;
+    while(temp->next->next!=nullptr)
+        temp = temp->next;
+    delete temp->next;
+    temp->next = nullptr;
+}
+
+void deleteAtStart(Node* &head){
+    if(head==nullptr)   return;
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+    return ;
+}
+
 void print(Node* head){
     Node* temp = head;
     while(temp!=nullptr){
@@ -77,6 +100,9 @@ int main(){
     insertAtStart(head, 20);
     insertAtStart(head, 1);
     insertAtPos(head, -1, 8);
+    print(head);
+    deleteAtEnd(head);
+    deleteAtStart(head);
     print(head);
     return 0;
 }
