@@ -36,30 +36,6 @@ void insertAtStart(Node* &head, int val){
     return ;
 }
 
-void insertAtPos(Node* &head, int val, int pos){
-    Node* newNode = new Node(val);
-    if(head==nullptr){
-        head = newNode;
-        return ;
-    }
-    if(pos==1){
-        newNode->next = head;
-        head = newNode;
-        return ;
-    }
-    Node* temp = head;
-    for(int i=1;i<pos-1 && temp!=nullptr;i++){
-        temp = temp->next;
-    }
-    if(temp==nullptr){
-        cout << "The Position of the value " << val << " is out of bound." << endl;
-        return;
-    }
-    newNode->next = temp->next;
-    temp->next = newNode;
-    return ;
-}
-
 void deleteAtEnd(Node* &head){
     if(head==nullptr)   return;
     if(head->next==nullptr){
@@ -104,6 +80,13 @@ void deleteAtPos(Node* &head, int pos){
     return ;
 }
 
+// searching for the key
+bool search(Node* head, int key){
+    if(head==nullptr) return false;
+    if(head->data == key) return true;
+    search(head->next, key);
+}
+
 void print(Node* head){
     Node* temp = head;
     while(temp!=nullptr){
@@ -113,6 +96,7 @@ void print(Node* head){
     cout << "NULL" << endl;
 }
 
+// count how many nodes have even values
 void printEven(Node* head){
     int count = 0;
     while(head!=nullptr){
@@ -129,12 +113,12 @@ int main(){
     insertAtEnd(head, 15);
     insertAtStart(head, 20);
     insertAtStart(head, 1);
-    insertAtPos(head, -1, 8);
-    // print(head);
-    // // deleteAtEnd(head);
-    // // deleteAtStart(head);
-    // deleteAtPos(head, 3);
-    // print(head);
-    printEven(head);
+
+    // printEven(head);
+
+    if(search(head, 17)){
+        cout << "The Key  is Present";
+    }
+    else cout << "The Key is Not Present";
     return 0;
 }

@@ -41,6 +41,36 @@ void insertAtStart(Node* &head, int val){
     head = newNode;
 }
 
+void deleteAtEnd(Node* &head){
+    if(head==nullptr) return;
+    if(head->next == head){
+        delete head;
+        return ;
+    }
+    Node* temp = head;
+    while(temp->next->next!=head)
+        temp = temp->next;
+    delete temp->next;
+    temp->next = head;
+    return ;
+}
+
+void deleteAtStart(Node* &head){
+    if(head==nullptr) return ;
+    if(head->next==head){
+        delete head;
+        head = nullptr;
+        return ;
+    }
+    Node* temp = head;
+    Node* tempHead = head;
+    head = head->next;
+    while(temp->next!=tempHead)
+        temp = temp->next;
+    temp->next = head;
+    delete tempHead;
+}
+
 void print(Node* head){
     Node* temp = head;
     do{
@@ -59,6 +89,9 @@ int main(){
     insertAtStart(head, 1);
     insertAtStart(head, 2);
     insertAtStart(head, 3);
+    print(head);
+    // deleteAtEnd(head);
+    deleteAtStart(head);
     print(head);
     return 0;
 }
