@@ -1,6 +1,44 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/partition-list/
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+/*class Solution {
+    public ListNode partition(ListNode head, int x) {
+        // Dummy Pointer Approach
+        ListNode left = new ListNode(-1);
+        ListNode right = new ListNode(-1);
+        ListNode temp = head;
+        ListNode lp = left;
+        ListNode rp = right;
+        while(temp!=null){
+            if(temp.val<x){
+                lp.next = temp;
+                lp = lp.next;
+            }
+            else{
+                rp.next = temp;
+                rp = rp.next;
+            }
+            temp = temp.next;
+        }
+        lp.next = right.next;
+        rp.next = null;
+        return left.next;
+    }
+}
+*/
+
+
 class Node{
     public:
     int data;
@@ -36,49 +74,7 @@ void insertAtStart(Node* &head, int val){
     return ;
 }
 
-void deleteAtEnd(Node* &head){
-    if(head==nullptr)   return;
-    if(head->next==nullptr){
-        Node* temp = head;
-        delete temp;
-        head = nullptr;
-        return;
-    }
-    Node* temp = head;
-    while(temp->next->next!=nullptr)
-        temp = temp->next;
-    delete temp->next;
-    temp->next = nullptr;
-}
 
-void deleteAtStart(Node* &head){
-    if(head==nullptr)   return;
-    Node* temp = head;
-    head = head->next;
-    delete temp;
-    return ;
-}
-
-void deleteAtPos(Node* &head, int pos){
-    if(head==nullptr) return;
-    if(pos==1){
-        Node* temp = head;
-        head = head->next;
-        delete temp;
-        return ;
-    }
-    Node* temp = head;
-    for(int i=1;i<pos-1 && temp!=nullptr;i++)
-        temp = temp->next;
-    if(temp==nullptr){
-        cout << "No Element to Delete at Pos " << pos << endl;
-        return ;
-    }
-    Node* curr = temp->next;
-    temp->next = temp->next->next;
-    delete curr;
-    return ;
-}
 
 // searching for the key
 bool search(Node* head, int key){
