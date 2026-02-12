@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class MyQueue{
+    public:
+    int* arr;
+    int front;
+    int rear;
+    int size;
+    
+    MyQueue(int size){
+        this->size = size;
+        arr = new int[size];
+        front = -1;
+        rear = -1;
+    }
+    
+    void enqueue(int val){
+        if(rear == size-1){
+            cout << "Queue Overflow" << endl;
+            return;
+        } 
+        if(front==-1){
+            front++;
+        }
+        rear++;
+        arr[rear] = val;
+    }
+    
+    void dequeue(){
+        if(front == -1 || front>rear){
+            cout << "Queue Underflow" << endl;
+            return ;
+        }
+        front++;
+    }
+    
+    int getFront(){
+        if(front==-1 || front>rear){
+            cout << "Queue is Empty" << endl;
+            return -1;
+        }
+        return arr[front]; 
+    }
+    
+};
+
+int main()
+{
+    cout<<"Hello World";
+
+    return 0;
+}
