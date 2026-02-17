@@ -14,6 +14,13 @@ class TreeNode{
     }
 };
 
+// Depth or Height of a Tree.
+int maxDepth(TreeNode* root) {
+        if(root == nullptr) return 0;
+        if(root->left == nullptr && root->right == nullptr) return 1;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
+    }
+
 void inorder(TreeNode* root){
     if(root == nullptr){
         return;
