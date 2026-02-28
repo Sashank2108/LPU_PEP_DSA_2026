@@ -25,13 +25,7 @@ int main(){
     // (*ptr)++;
     // cout << a; 
 
-    // Reverse String
-    /*string str1 = "asdfvoae";
-    int n = str1.length();
-    for(int i=0;i<n/2;i++){
-        swap(str1[i], str1[n-i-1]);
-    }
-    cout << str1;*/
+    
 
     // Remove Dupilcates
     /* string str = "HhHHeeelloooowW";
