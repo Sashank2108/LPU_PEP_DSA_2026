@@ -1,13 +1,22 @@
-// Reverse String
-    /*string str1 = "asdfvoae";
-    int n = str1.length();
+#include<bits/stdc++.h>
+using namespace std;
+
+void reverseString(string str){
+    int n = str.length();
     for(int i=0;i<n/2;i++){
-        swap(str1[i], str1[n-i-1]);
+        swap(str[i], str[n-i-1]);
     }
-    int i = 0, j = str.size()-1;
-    while(i<j){
-        char c = str1[i];
-        str1[i] = str2[j];
-        str2[j] = c;
-    }
-    cout << str1;*/
+    // int i = 0, j = str.size()-1;
+    // while(i<j){
+    //     char c = str[i];
+    //     str[i] = str[j];
+    //     str[j] = c;
+    // }
+    cout << str;
+}
+
+int main(){
+    string str = "asdfvoae";
+    reverseString(str);
+    return 0;
+}
