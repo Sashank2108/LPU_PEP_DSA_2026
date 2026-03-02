@@ -29,23 +29,6 @@ int main(){
 
 
 
-    // Is string is palindrome or not
-    /*string str = "A man, a plan, a canal: Panam";
-    int i = 0, j = str.length()-1;
-    bool palindrome = true;
-    while(i<j){
-        while(!isalnum(str[i])) i++;
-        while(!isalnum(str[j])) j--;
-        if(tolower(str[i]) != tolower(str[j])){ 
-            palindrome = false;
-            break;
-        }
-        i++; j--;
-    }
-    if(palindrome)
-        cout << "The String is Palindrome";
-    else cout << "The String is not a Palindrome";*/
-
     // int arr[] = {1, 3, 5, 7, 9};
     // int size = sizeof(arr)/sizeof(arr[0]);
     // // if(isSorted(arr, size, 0, 1))
