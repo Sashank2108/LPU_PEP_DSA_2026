@@ -1,5 +1,6 @@
 // https://www.geeksforgeeks.org/problems/height-of-binary-tree/1
-/*
+#include<bits/stdc++.h>
+using namespace std;
 class Node {
 public:
     int data;
@@ -11,9 +12,8 @@ public:
         left = right = NULL;
     }
 };
-*/
-#include<bits/stdc++.h>
-using namespace std;
+
+
 class Solution {
   public:
     int height(Node* root) {
